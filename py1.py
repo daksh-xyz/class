@@ -85,3 +85,13 @@
 # wickets[["Muralitharan","tests"]] = 800
 
 # print(wickets)
+
+def histogram(l):
+    for i in l:
+        key = i
+        count = 0
+        for j in range(0,len(l)):
+            if key == l[j]:
+                count += 1
+        print(i,count)
+histogram([1,2,300,400,400,5,6])
