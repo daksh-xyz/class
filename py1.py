@@ -77,7 +77,7 @@
 # goals["Club"]["Messi"] = goals["Club"]["Messi"] + [496,71,145]
 # print(goals)
 
-# wickets = {}skjdn
+# wickets = {}
 # Which of the following generates an error?
 # wickets["Muralitharan, tests"] = 800
 # wickets["Muralitharan"] = {"tests":800}
