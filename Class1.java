@@ -84,18 +84,18 @@
 //     }
 // }
 
-class Bank{
-    String name, AccountType;
-    int number, balance;
-        Bank(int num, int Balance){
-            name = "Daksh";
-            AccountType = "Savings";
-            number = num;
-            balance = Balance; 
-            System.out.println(num + " " + Balance);
-        }
-        public static void main(String[] args){
-            Bank w = new Bank(123456789, 999);
-            Bank d = new Bank(123456789, 100000000);
-        }
-    }
+// class Bank{
+//     String name, AccountType;
+//     int number, balance;
+//         Bank(int num, int Balance){
+//             name = "Daksh";
+//             AccountType = "Savings";
+//             number = num;
+//             balance = Balance; 
+//             System.out.println(num + " " + Balance);
+//         }
+//         public static void main(String[] args){
+//             Bank w = new Bank(123456789, 999);
+//             Bank d = new Bank(123456789, 100000000);
+//         }
+//     }
