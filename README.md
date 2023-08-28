@@ -137,10 +137,10 @@ If a class has multiple methods having the same name but different parameters it
         }
     }
 
-### Can we overload main( ) method in Java
+### Can we overload main( ) method in Java ?
 yes , we can have any number of main methods by method overloading but jvm calls only methods with string args only...  
 
-CODE :
+SAMPLE CODE :
 
     class TstOvrloading{
         public static void main(String args[]){
@@ -153,4 +153,3 @@ CODE :
             sout(from string);
         }
     }
-    
