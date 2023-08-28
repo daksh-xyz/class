@@ -99,3 +99,44 @@
 //             Bank d = new Bank(123456789, 100000000);
 //         }
 //     }
+// NOT MAM
+// class Adder{
+//     Adder(int m, int n){
+//         System.out.println(Display(m, n));
+//     }
+//     Adder(int m, int n, int o){
+//         System.out.println(Display(m, n, o));
+//     }
+//     int Display(int m, int n){
+//         int sum = m+n;
+//         return sum;
+//     }
+//     int Display(int m,int n, int o){
+//         int sum = m+n+o;
+//         return sum;
+//     }
+//     public static void main(String[] args) {
+//         Adder s = new Adder(3, 4);
+//     }
+// }
+// MAM
+// class Add{
+//     int a, b, c;
+//     Add(int m, int n){
+//         a = m;
+//         b=n;
+//     }
+//     Add(int m , int n, int o){
+//         a = m;
+//         b = n;
+//         c = o;
+//     }
+//     void sum(){
+//         System.out.println(a+b+c);
+//     }
+//     public static void main(String[] args) {
+//         Add a1 = new Add(3, 4);
+//         Add a2 = new Add(3, 4, 5);
+//         Add.sum();
+//     }
+// }

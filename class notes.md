@@ -95,3 +95,62 @@ It is a block of code similar to method which creates values at the time of obje
 ## Difference between constructor and method
 ![image difference between constructor and method](./diff.jpg)
 
+### 25 August 2023
+## Method Overloading
+If a class has multiple methods having the same name but different parameters it is known as **Method Overloading.**
+### Different ways to overload a method :
+1. By changing the number of arguments.
+
+1. By changing the data type.
+
+### Sample Code :
+    // (1) By changing number of Arguments
+    class Adder{
+        static int add(int a, int b){
+            return a+b;
+        }
+        static int add(int a, int b, int c){
+            return a+b+c;
+        }
+    }
+    class TestOverloading{
+        psvm(){
+            System.out.println(Adder.add(11,11));
+            System.out.println(Adder.add(11,1,1));
+        }
+    }
+
+    // (2) changing the data type of arguments
+
+    class Adder{
+        static int add(int a, int b){
+            return a+b;
+        }
+        static int add(double a, double b){
+            return a+b;
+        }
+    }
+    class TestOverloading{
+        psvm(){
+            System.out.println(Adder.add(11,11));
+            System.out.println(Adder.add(11.2, 12.3));
+        }
+    }
+
+### Can we overload main( ) method in Java
+yes , we can have any number of main methods by method overloading but jvm calls only methods with string args only...  
+
+CODE :
+
+    class TstOvrloading{
+        public static void main(String args[]){
+            sout(from string[] args);
+        }
+        public static void main(String args){
+            sout(from string args);
+        }
+        public static void main(String[]){
+            sout(from string);
+        }
+    }
+    
