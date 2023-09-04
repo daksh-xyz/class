@@ -1,2 +1,3 @@
-    printf("%d", curr->data);
-        curr = curr->next;
+default:
+                printf("Invalid choice. Please enter a valid option.\n");
+                break;
