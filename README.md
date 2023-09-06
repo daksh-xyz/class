@@ -70,7 +70,7 @@ It is a block of code similar to method which creates values at the time of obje
 2. A constructor must not have an explicit return type
 3. A java constructor cannot be static, final, abstract or synchronized
 4. We can use access modifiers (private, public, protected or default) hwile declaring a constructor
-### Synatx of default constructor :
+### Syntax of default constructor :
     class_name(){}
 ### <mark> Why use parameterized constructor ? </mark>
 #### Answer :
@@ -78,7 +78,7 @@ It is a block of code similar to method which creates values at the time of obje
 
 ### Sample Code :
     class Bank{
-    String name, AccountType;
+    String name, AccountType; //Instance variable
     int number, balance;
         Bank(int num, int Balance){
             name = "Daksh";
@@ -154,4 +154,156 @@ SAMPLE CODE :
         }
     }
 
-## [Pillars of OOPs](README.md#oops)
+## [Pillars of OOPs](#oops)
+
+## STATIC KEYWORD
+The static keyword is used for memory management mainly. We can apply static keyword with variables, methods, blocks and nested classes.  
+The static can be :
+- Variable(AKA class variable)
+- Method(AKA class method)
+
+### Sample Code :
+
+    class Student{
+        int rollno; //instance variable
+        String name;
+        static String college = "ITS";
+        Student(int r, String n){
+            rollno = r;
+            name = n;
+        }
+        void display(){System.out.println(rollno+" "+name+" "+ college);}
+    }
+    public class Test{
+        psvm(){
+            Student s1= new Student(111, "Aryan");
+            s1.display();
+        }
+    }
+
+### Sample Code :
+    class counter{
+        int count = 0;
+        counter(){
+            count ++;
+            System.out.println(count);
+        }
+        psvm(){
+            counter c1 = new counter();
+            counter c2 = new counter();
+            counter c3 = new counter();
+        }
+    }
+<mark>; OUTPUT : 1 1 1 ;
+
+    class counter{
+        static int count = 0;
+        counter(){
+            count ++;
+            System.out.println(count);
+        }
+        psvm(){
+            counter c1 = new counter();
+            counter c2 = new counter();
+            counter c3 = new counter();
+        }
+    }
+<mark>; OUTPUT : 1 2 3 ;
+
+### STATIC METHODS :
+
+### Sample Code :
+
+    class Student{
+        int rollno; //instance variable
+        String name;
+        static String college = "ITS";
+        Student(int r, int n){
+            rollno = r;
+            name = n;
+        }
+        static void change(){
+            college = "BBDOT";
+        }
+        void display(){System.out.println(rollno+" "+name+" "+ college);}
+    }
+    public class Test{
+        psvm(){
+            Student s1= new Student(111, "Aryan");
+            s1.display();
+        }
+    }
+
+## FINAL KEYWORD
+The final keyword is used to restrict user from changing the value of that variable ( , method or class).
+
+A final variable that is not initialized at the time of declaration is known as blank final variable.
+
+## THIS KEYWORD
+
+### Sample Code :
+    class Student{
+        int rollno; //instance variable
+        String name;
+        float fee;
+        Student(int rollno, String name, float fee){
+            rollno = rollno;
+            name = name;
+            fee = fee;
+        }
+        void display(){System.out.println(rollno+" "+name+" "+ fee);}
+    }
+    public class Test{
+        psvm(){
+            Student s1= new Student(111, "Aryan", 60000f);
+            s1.display();
+        }
+    }
+
+<mark> ; OUTPUT : error in thread ;
+
+        class Student{
+        int rollno; //instance variable
+        String name;
+        float fee;
+        Student(int rollno, String name, float fee){
+            this.rollno = rollno;
+            this.name = name;
+            this.fee = fee;
+        }
+        void display(){System.out.println(rollno+" "+name+" "+ fee);}
+    }
+    public class Test{
+        psvm(){
+            Student s1= new Student(111, "Aryan", 60000f);
+            s1.display();
+        }
+    }
+
+NOTE : this variable can be read as an object,  
+for example : this.rollno is read as s1.rollno
+
+<mark> ; NEW OUTPUT : 111 Aryan 60000
+
+### Sample Code : 
+    class st{
+        int a, b;
+        st(st t1){
+            a = t1.a;
+            b = t1.b;
+        }
+        st(int m, int n){
+            a = m;
+            b = n;
+        }
+        void add(){
+            System.out.println(a+b);
+        }
+        public static void main(String args[]){
+            st ob1 = new st(20,40);
+            st ob2 = new st(ob1);
+            ob2.add();
+        }
+    }
+
+<mark> ;  

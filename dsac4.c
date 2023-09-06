@@ -6,8 +6,7 @@ struct st {
     char student_name[50];
     int student_marks;
     struct st *next;
-};
-struct st *head = NULL;
+}*head = NULL;
 void main() {
     int n;
     printf("Enter the number of students: ");
@@ -38,7 +37,7 @@ void main() {
     }
     struct st *curr = head;
     printf("\nStudent List:\n");
-    int i=0;
+    int i=1;
     while (curr != NULL) {
         printf("Student count: %d, Name: %s, Marks: %d\n", i, curr->student_name, curr->student_marks);
         i++;

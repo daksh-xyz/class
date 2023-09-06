@@ -1,37 +1,23 @@
-class Student {
-    String name;
-    int[] marks = new int[5];
-
-    Student(String name, int[] marks) {
-        this.name = name;
-        this.marks = marks;
+class st{
+    int a, b;
+    // Constructor 1
+    st(st t1){
+        a = t1.a;
+        b = t1.b;
     }
-
-    // Compare marks of two students and return true if they are the same
-    static int compareMarks(Student student1, Student student2) {
-        int count=0;
-        for(int j=0; j<student1.marks.length; j++){
-            for (int i = 0; i < student2.marks.length; i++) {
-                if (student1.marks[j] == student2.marks[i]) {
-                    count += 1;
-                }
-            }
-        }
-        return count;
+    // Constructor 2
+    st(int m, int n){
+        a = m;
+        b = n;
     }
-
-    public static void main(String[] args) {
-        int[] marks1 = { 85, 90, 75, 88, 92 };
-        int[] marks2 = { 75, 90, 75, 85, 91 };
-
-        Student student1 = new Student("Alice", marks1);
-        Student student2 = new Student("Bob", marks2);
-
-        if (compareMarks(student1, student2)>0) {
-            System.out.println("Marks of students are the same. Count: " + compareMarks(student1, student2));
-        } else {
-            System.out.println("Marks of students are different.");
-        }
+    void add(st t1){
+        System.out.println(t1.a+t1.b);
+    }
+    public static void main(String args[]){
+        st ob1 = new st(20,40);
+        st ob2 = new st(ob1);
+        // ob2.add(); // calls constructor 1
+        // ob1.add(); // calls constructor 2
+        ob1.add(ob2);
     }
 }
-    
