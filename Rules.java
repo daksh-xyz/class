@@ -30,6 +30,7 @@ public class Rules {
         String binaryMessage = sc.nextLine();
         if (binaryMessage.length() != 7 || !binaryMessage.matches("[01]+")) {
             System.out.println("Invalid binary message, please enter an 8-bit binary value.");
+            sc.close();
             return;
         }
         if (rule == 0 || rule == 1) {
@@ -40,5 +41,6 @@ public class Rules {
         else {
             System.out.println("Invalid rule selected...");
         }
+        sc.close();
     }
 }

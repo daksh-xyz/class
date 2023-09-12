@@ -306,4 +306,95 @@ for example : this.rollno is read as s1.rollno
         }
     }
 
-<mark> ;  
+<mark> : OUPUT : pata nahi ;) .
+
+## Passing objects as parameters
+
+### Sample Code : 
+    class Box{
+        double width, height, depth;
+        Box(Box ob){
+            width = ob.width;
+            height = ob.height;
+            depth = ob.depth;
+        }
+        Box(double w, double h, double d){
+            width = w;
+            height = h;
+            depth = d;
+        }
+        double volume(){return width*height*depth;}
+    }
+    public class GFG{
+        public static void main(String[] args){
+            Box mybox = new Box(10,20,15);
+            Box myclone = new Box(mybox);
+            double vol;
+            vol = mybox.volume();
+            System.out.println("Volume of mybox is: " + vol);
+            vol = myclone.volume();
+            System.out.println("Volume of myclone is: " + vol);
+        }
+    }
+
+![image difference between constructor and method](./passingobjasparam.png)
+
+    class Add{
+        int a, b;
+        Add(int a, int b){
+            this.a = a;
+            this.b = b;
+        }
+        // Add(Add myadd){
+        //     a = myadd.a;
+        //     b = myadd.b;
+        // }
+        // int addition(){
+        //     return a+b;
+        // }
+        void addition(Add ob){
+            a = a + ob.a;
+            b = b + ob.b;
+        }
+        void display(){
+            System.out.println(a+b);
+        }
+    }
+    class GFG{
+        public static void main(String[] args) {
+            Add myadder = new Add(4, 5);
+            // Add myobj = new Add(myadder);
+            Add myob = new Add(30,40);
+            myadder.addition(myob);
+            myadder.display();
+            myob.display();
+        }
+    }
+
+## ARRAYS
+**Definition : An array is a collection of similar types of objects**
+### SYNTAX TO DECLARE AN ARRAY
+* dataType[ ] arr ;
+* dataType arr[ ] ;
+
+**Declaration & Instantiation: int arr[ ] = new int[5]**  
+
+**Declaration, instantiation and initialization : int arr[] = {33, 3, 4, 5}**
+
+### Sample Code : 
+    // WAP to calculate min element of array
+    public class Test{
+    static void minArray(int[] arr){
+        int min = arr[0];
+        for(int i=0; i<5; i++){
+            if(min>arr[i]){
+                min = arr[i];
+            }
+        }
+        System.out.println(min);
+    }
+    public static void main(String[] args) {
+        int[] arr = {33, 4, 5,6,7};
+        minArray(arr);
+    }
+}

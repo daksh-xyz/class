@@ -9,20 +9,19 @@ void isPalindrome(char str[])
 {
 	// Start from leftmost and
 	// rightmost corners of str
-	int l = 0;
+	int l = strlen(str);
 	int h = strlen(str) - 1;
+	char temp[1];
 
 	// Keep comparing characters
 	// while they are same
-	while (h > l)
-	{
-		if (str[l++] != str[h--])
-		{
-			printf("%s is not a palindrome\n", str);
-			return;
-		}
+	for(int i=0; i<= l/2; i++){
+		temp[0] = str[i];
+		str[i] = str[h];
+		str[h] = temp[0];
+		h--;
 	}
-	printf("%s is a palindrome\n", str);
+	printf("%s", str);
 }
 
 // Driver program to test above function

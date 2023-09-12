@@ -33,3 +33,5 @@
 
 ## List as abstract Data Type
  
+
+## Doubly Linked list:
