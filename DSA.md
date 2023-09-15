@@ -35,3 +35,8 @@
  
 
 ## Doubly Linked list:
+
+## Stacks
+
+## Queue
+

@@ -398,3 +398,67 @@ for example : this.rollno is read as s1.rollno
         minArray(arr);
     }
 }
+
+## INHERITANCE
+### Inheriting properties and behaviours of parent class is known as inheritance
+
+### Sample Code :   
+    class Employee{
+        int salary = 20000000;
+    }
+    class Programmer extends Employee{
+        int bonus = 200;
+        psvm(){
+            Programmer p = new Programmer();
+            System.out.println(p.salary);
+            System.out.println(p.bonus);
+        }
+    }
+
+### Why use inheritance ?
+- For **method OVERRIDING** (so **RUNTIME polymorphism** can be achieved)
+- For code reusability
+
+## Terms used in inheritance : 
+- Class : a class is a group of objects sharing same properties and behaviours.
+- Sub class : It is a child class which inherits the other class. It is also called a derived class, extended or a child class.
+- Superclass: A super class is the class from where the child class inherits all its properties.It is also called parent class or base class.
+- Reusability: 
+
+## EXTENDS KEYWORD :  
+the extends keyword indicates that you are making a new class that derives from an existing class. The meaning of "extends" is to increase functionality.
+
+### JAVA SUPPORTS 3 TYPES OF INHERITANCE
+- Single
+- Multilevel (Does not natively support it, but we can achieve it using interface)
+- Hierarichal
+
+### Sample Code :
+    import java.util.Scanner;
+    class Area{
+        Scanner sc = new Scanner(System.in);
+        int area(){
+            int a,b;
+            System.out.print("Enter length and breadth of a rectangle: ");
+            a = sc.nextInt();
+            b=  sc.nextInt();
+            return a*b;
+        }
+        int volume(){
+            int x,y,z;
+            System.out.print("Enter length, breadth and depth of a cuboid: ");
+            x = sc.nextInt();
+            y =  sc.nextInt();       
+            z =  sc.nextInt();   
+            return x*y*z;
+        }
+    }
+    class Volume extends Area{
+        public static void main(String[] args) {
+            Volume v = new Volume();
+            System.out.println("Area of : " + v.area());
+            System.out.println("Volume of cuboid: " + v.volume());
+        }
+    }
+
+
