@@ -430,35 +430,111 @@ the extends keyword indicates that you are making a new class that derives from 
 
 ### JAVA SUPPORTS 3 TYPES OF INHERITANCE
 - Single
-- Multilevel (Does not natively support it, but we can achieve it using interface)
+- Multilevel 
 - Hierarichal
+- Multiple (Does not natively support it, but we can achieve it using interface)
+- Hybrid (Not supported by java)
 
 ### Sample Code :
     import java.util.Scanner;
     class Area{
         Scanner sc = new Scanner(System.in);
+        int a,b,ar;
         int area(){
-            int a,b;
             System.out.print("Enter length and breadth of a rectangle: ");
             a = sc.nextInt();
             b=  sc.nextInt();
-            return a*b;
-        }
-        int volume(){
-            int x,y,z;
-            System.out.print("Enter length, breadth and depth of a cuboid: ");
-            x = sc.nextInt();
-            y =  sc.nextInt();       
-            z =  sc.nextInt();   
-            return x*y*z;
+            ar = a*b;
+            return ar;
         }
     }
     class Volume extends Area{
+        int volume(){
+            int h, vol;
+            System.out.print("Enter length, breadth and depth of a cuboid: ");
+            h = sc.nextInt(); 
+            vol = ar*h
+            return x*y*z;
+        }
+    }
+    class Both{
+        public static void main(String[] args){
+            Both b = new Both();
+            
+        }
+    }
+        
+
+![image](./Inheritance.jpg)
+
+### Sample Code : 
+    class School{
+        static String S_name;
+    }
+
+    class Room extends School{
+        static String section;
+    }
+
+    class Student extends Room{
+        static String St_name;
         public static void main(String[] args) {
-            Volume v = new Volume();
-            System.out.println("Area of : " + v.area());
-            System.out.println("Volume of cuboid: " + v.volume());
+            S_name = "MUJ";
+            section = "J";
+            St_name = "Daksh";
+            System.out.println(S_name+" "+section+" "+St_name);
         }
     }
 
+## SUPER KEYWORD
 
+**We can use super keyword to access the data member or field of parent class> It is used if parent class and child class have same fields**
+
+### Sample Code : 
+    class A{
+        int x = 10;
+        void display(){
+            System.out.println(x);
+        }
+    }
+    class B extends A{
+        int x = 20;
+        void display(){
+            System.out.println(x);
+            super.display();
+        }
+    }
+    class C extends B{
+        public static void main(String[] args){
+            B ob1 = new B();
+            ob1.display();
+        }
+    }
+    
+### Sample Code : 
+    class A{
+        int x=20;
+        A(int a){
+            x = a;
+        }
+        void display(){
+            System.out.println(x);
+        }
+    }
+    class B extends A{
+        int x;
+        B(int x){
+            super(x);
+            this.x = x;
+        }
+        void display(){
+            System.out.println(x);
+            super.display();
+        }
+    }
+    class C{
+        public static void main(String[] args){
+            B ob1 = new B(10);
+            ob1.display();
+        }
+    }
