@@ -105,83 +105,161 @@ def Dictionary():
 Dictionary()
 
 """========================LINKED LIST IN PYTHON============================="""
+# class Node:
+#     def __init__(self, data=None, next = None):
+#         self.data = data
+#         self.next = next
+
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
+
+#     def InsertatBeg(self, data):
+#         node = Node(data, self.head)
+#         self.head = node
+
+#     def print(self):
+#         if self.head is None:
+#             raise Exception ("List is empty!!")
+#         itr = self.head
+#         llstr = ''
+#         while itr:
+#             llstr += str(itr.data) + "-->"
+#             itr = itr.next
+#         llstr += "None"
+#         print(llstr)
+    
+#     def append(self, data):
+#         if self.head is None:
+#             node = Node(data, None)
+#             self.head = node 
+#             return
+#         itr = self.head
+#         while itr.next:
+#             itr = itr.next
+#         itr.next = Node(data, None)
+    
+#     def Insert(self, data_list):
+#         #self.head = None       used to clear list
+#         for i in data_list:
+#             self.append(i)
+
+#     def getLength(self):
+#         count = 0
+#         itr = self.head
+#         while itr:
+#             count += 1
+#             itr= itr.next
+#         return count
+    
+#     def Remove(self, position):
+#         if self.head is None:
+#             raise Exception ("Linked List is empty!")
+#         if position < 0 or position >= self.getLength():
+#             raise Exception ("Index out of bounds")
+#         if position == 0:
+#             self.head = self.head.next
+#         itr = self.head
+#         count = 0
+#         while itr:
+#             if count == position - 1:
+#                 itr.next = itr.next.next
+#                 break
+#             itr = itr.next
+#             count += 1
+            
+#     def InsertatIndex(self, position, data):
+#         if position < 0 or position > self.getLength():
+#             raise Exception ("Invalid index!")
+#         if position == 0:
+#             self.InsertatBeg(data)
+#             return
+#         count = 0
+#         itr = self.head
+#         while itr:
+#             if count == position - 1:
+#                 node = Node(data, itr.next)
+#                 itr.next = node
+#                 break
+#             itr = itr.next
+#             count += 1
 class Node:
-    def __init__(self, data=None, next = None):
+    def __init__(self, data = None, next = None):
         self.data = data
         self.next = next
-
 class LinkedList:
     def __init__(self):
         self.head = None
-
+    
     def InsertatBeg(self, data):
-        self.head = Node(data, self.head)
-        
+        node = Node(data, self.head)
+        self.head = node
+    
     def print(self):
         if self.head is None:
-            raise Exception ("List is empty!!")
-        itr = self.head
+            raise Exception ("List is empty!")
         llstr = ''
+        itr = self.head
         while itr:
-            llstr += str(itr.data) + "-->"
+            llstr += str(itr.data) + '-->'
             itr = itr.next
         llstr += "None"
         print(llstr)
-    
+
     def append(self, data):
         if self.head is None:
             node = Node(data, None)
-            self.head = node 
+            self.head = node
             return
         itr = self.head
         while itr.next:
             itr = itr.next
-        itr.next = Node(data, None)
+        itr.next = Node(data,None)
     
-    def Insert(self, data_list):
-        #self.head = None       used to clear list
-        for i in data_list:
-            self.append(i)
-
     def getLength(self):
         count = 0
         itr = self.head
         while itr:
+            itr = itr.next
             count += 1
-            itr= itr.next
         return count
     
+    def Insert(self, data_list):
+        for i in data_list:
+            self.append(i)
+
     def Remove(self, position):
         if self.head is None:
-            raise Exception ("Linked List is empty!")
-        if position < 0 or position >= self.getLength():
+            raise Exception ("List is already empty!!")
+        if position<0 or position>=self.getLength():
             raise Exception ("Index out of bounds")
+        itr = self.head
         if position == 0:
             self.head = self.head.next
-        itr = self.head
         count = 0
         while itr:
-            if count == position - 1:
+            if count == position-1:
                 itr.next = itr.next.next
                 break
             itr = itr.next
-            count += 1
-            
+            count+=1
+
     def InsertatIndex(self, position, data):
-        if position < 0 or position > self.getLength():
-            raise Exception ("Invalid index!")
         if position == 0:
-            self.InsertatBeg(data)
+            self.InsertatIndex(data)
             return
+        if position >= self.getLength() or position < 0:
+            raise Exception ("Invalid Index!!")
         count = 0
         itr = self.head
         while itr:
-            if count == position - 1:
+            if count == position -1:
                 node = Node(data, itr.next)
                 itr.next = node
                 break
             itr = itr.next
             count += 1
+        
 
 if __name__ == "__main__":
     ll = LinkedList()
@@ -197,6 +275,47 @@ if __name__ == "__main__":
     ll.print()
     ll.InsertatIndex(5,45)
     ll.print()
+
+
+
+"""=====================RECURSION===================="""
+# def recursion(n):
+#     printf(n)
+# def printf(n):
+#     if n == 10:
+#         return
+#     print(n)
+#     printf(n+1)
+# recursion(1)
+
+stk = []
+stk.append(67)
+print(stk)
+stk.pop()
+print(stk)
+
+from collections import deque
+q = deque()
+q.appendleft(45)
+q.appendleft(90)
+q.appendleft(91)
+q.pop()
+print(q)
+
+from time import sleep
+
+i = 1
+while(i<3):
+    print("\r\\\r", end=" ")
+    sleep(0.5)
+    print("\r|\r", end=" ")
+    sleep(0.5)
+    print("\r/\r", end=" ")
+    sleep(0.5)
+    print("\r—\r", end=" ")
+    sleep(0.5)
+    i+=1
+
 
 """  --------------------INSERTION SORT IN C----------------------
 #include<stdio.h>
