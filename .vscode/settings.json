@@ -1,6 +1,10 @@
 {
     "files.associations": {
-        "string.h": "c"
+        "string.h": "c",
+        "array": "c",
+        "string": "c",
+        "string_view": "c",
+        "typeinfo": "c"
     },
     "java.debug.settings.onBuildFailureProceed": true
 }

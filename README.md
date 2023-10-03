@@ -538,3 +538,216 @@ the extends keyword indicates that you are making a new class that derives from 
             ob1.display();
         }
     }
+
+## DYNAMIC ARRAYS
+<code>scdcdcj</code>
+### Sample Code :
+    import java.util.*;
+
+    class Addmethod{
+        public static void main(String[] args){
+            ArrayList<integer> arr = new ArrayList<>;
+            arr.add(3);
+            System.out.print("Before inserting: "+arr);
+            arr.add(2,3);
+            System.out.print("After inserting: " + arr);
+        }
+    }
+
+    .---------------------------------------.
+    |     |Default|Private|Protected|Public |
+    +----+--------+--------+-------+--------+
+    |  1 |        |        |       |        |
+    |  2 |        |        |       |        |
+    |  3 |        |        |       |        |
+    |  4 |        |        |       |        |
+    |  5 |        |        |       |        |
+    '----+--------+--------+-------+--------.
+
+
+### COMMAND LINE ARGUMENTS
+
+ho gya bas
+**Command**
+    javac test.java
+    java test "Your string"
+
+## STRINGS
+
+- **String Literal :** Each time we create a string literal the JVM checks the <code>"string constant pool"</code> first. If the string already exists in the pool, a reference to the pooled instance is returned.
+
+- **By new keyword :** String s = new String("Hello World");
+
+
+**NOTE !**  
+**In java String objects are immutable.**
+Example :
+
+    class Cricket{
+        public static void main(String args[]){
+            String s = "Sachin";
+            s.concat(" Tendulkar");
+            System.out.println(s);
+        }
+    }
+
+**Output :** Sachin 
+
+**Correct use :**
+
+    class Cricket{
+        public static void main(String args[]){
+            String s = "Sachin";
+            s = s.concat(" Tendulkar");
+            System.out.println(s);
+        }
+    }
+
+### Methods :
+
+**Comparing 2 strings**
+- equals()
+- == operator
+- CompareTo()
+
+----  
+
+    class Cricket{
+        public static void main(String args[]){
+            String s = "Sachin";
+            String s2 = "Sachin";
+            String s3 = "Sourav";
+            System.out.println(s1.equals(s2)); //True
+            System.out.println(s1.equals(s3)); //False
+        }
+    }
+---
+    class Cricket{
+        public static void main(String args[]){
+            String s = "Sachin";
+            String s2 = "Sachin";
+            String s3 = new String("Sourav");
+            System.out.println(s1 == s2); //True because both are created in the same pool
+            System.out.println(s2 == s3); //False because s3 refers to the instance created in another pool
+        }
+    }
+---
+    class Cricket{
+        public static void main(String args[]){
+            String s = "Sachin";
+            String s2 = "Sachin";
+            String s3 = new String("Sourav");
+            System.out.println(s1.CompareTo(s2)); // 0 Because they have the same lexicographic order
+            System.out.println(s2.CompareTo(s3)); // -1 Because s2<s3
+        }
+    }
+---
+
+    class Cricket{
+        public static void main(String args[]){
+            String s = 30+50+"Sachin"+40+40;
+            System.out.println(s);
+            // Output : 80Sachin4040
+        }
+    }
+---
+
+    class Cricket{
+        public static void main(String args[]){
+            String s = "Hello";
+            System.out.println(s.substring(0,2));
+            // Output : He
+        }
+    }
+---
+### Note : 
+---
+**substring(beginIndex)**  
+**substring(beginIndex, endIndex)**
+
+---
+
+    class Cricket{
+        public static void main(String args[]){
+            String s = "Hello";
+            System.out.println(s.startswith("He"));
+            // Output : True
+        }
+    }
+---
+    class Cricket{
+        public static void main(String args[]){
+            String s = "Hello";
+            System.out.println(s.charAt(2));
+            // Output : l
+        }
+    }
+
+## INTERFACE
+
+### Sample Code: 
+    interface printable{
+        void print();
+    }
+    class Ag implements printable{
+        public void print(){
+            System.out.println("HEllo");
+        }
+        public static void main(String[] args) {
+            Ag ob = new Ag();
+            ob.print();
+        }
+    }
+---
+
+    interface printable1{
+        void print();
+    }
+    interface printable2 extends printable1{
+        void print2();
+    }
+    class call implements printable2{
+        public void print(){
+            System.out.println("Hello");
+        }
+        public void print2(){
+            System.out.println("World");
+        }
+        public static void main(String[] args) {
+            call ob = new call();
+            ob.print();
+            ob.print2();
+        }
+    }
+
+---
+    interface Drawable{
+        void draw();
+    }
+
+    class Circle implements Drawable{
+        public void draw(){
+            System.out.println("Draw Circle !");
+        }
+    }
+
+    class Rectangle implements Drawable {
+        public void draw(){
+            System.out.println("Draw Rectangle !");
+        }
+    }
+
+    class Testclass{
+        public static void main(String[] args) {
+            Drawable cd = new Circle();
+            Drawable rd = new Rectangle();
+            Circle c = new Circle();
+            Rectangle r = new Rectangle();
+            cd.draw();
+            rd.draw();
+            c.draw();
+            r.draw();
+            cd = new Rectangle();
+            cd.draw();
+        }
+    }
