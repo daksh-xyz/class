@@ -1,50 +1,28 @@
-interface printable1{
-    void print();
-}
-interface printable2 extends printable1{
-    void print2();
-}
-class call implements printable2{
-    public void print(){
-        System.out.print("Hello ");
+import java.util.Scanner;
+
+class myException extends Exception{
+    public myException(String str){
+        super(str);
     }
-    public void print2(){
-        System.out.println("World!");
+}
+
+class User{
+    static void validate(String str) throws myException{
+        if(str.equalsIgnoreCase("bruh")){
+            System.out.println("Welcome to the program bruh");
+        }else{
+            throw new myException("Invalid input !");
+        }
     }
+
     public static void main(String[] args) {
-        call ob = new call();
-        ob.print();
-        ob.print2();
-    }
-}
-
-interface Drawable{
-    void draw();
-}
-
-class Circle implements Drawable{
-    public void draw(){
-        System.out.println("Draw Circle !");
-    }
-}
-
-class Rectangle implements Drawable {
-    public void draw(){
-        System.out.println("Draw Rectangle !");
-    }
-}
-
-class Testclass{
-    public static void main(String[] args) {
-        Drawable cd = new Circle();
-        Drawable rd = new Rectangle();
-        Circle c = new Circle();
-        Rectangle r = new Rectangle();
-        cd.draw();
-        rd.draw();
-        c.draw();
-        r.draw();
-        cd = new Rectangle();
-        cd.draw();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a string: ");
+        String str = sc.nextLine();
+        try{
+            validate(str);
+        }catch(myException ex){
+            System.out.println(ex.getMessage());
+        }
     }
 }
